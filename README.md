@@ -61,4 +61,8 @@ Experimenting with fast GPT inference.
             - plot performance as a function of generation length and context size
             - potentially variety in contexts aswell?
             - cleaning up obviously
+                - line everything up so it runs in one go (all model compiling included)
+                - document and check
+                - write tests?
+                - requirements file
             - swapping in fast tokenizers?! >:)

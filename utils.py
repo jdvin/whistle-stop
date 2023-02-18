@@ -68,6 +68,27 @@ class ModelTester:
             self.times.append(t)
             self.outputs.append(out)
 
+def sample_dataset(
+    dataset: any,
+    n_articles: int,
+    min_length_chars: int,
+    max_length_chars: int,
+) -> tp.List[str]:
+
+    article_indexes = list(range(len(dataset['train'])))
+    articles = []
+    for _ in range(n_articles):
+        while True and article_indexes:
+            i = article_indexes.pop(random.randint(0, len(article_indexes) - 1))
+            if len(dataset["train"][i]['text']) > min_length_chars:
+                articles.append(dataset['train'][i]['text'][:max_length_chars])
+                break
+ 
+    
+    if len(articles) != n_articles:
+        print(f"WARNING: Only found {len(articles)} articles greater than {min_length_chars} characters.")
+    
+    return articles
 
 def plot_test_results(model_testers: tp.List[ModelTester], result_type: str) -> None:
 
