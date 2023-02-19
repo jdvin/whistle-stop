@@ -35,6 +35,7 @@ The generation speed of the onnx model is far more robust to increases in prompt
 - How would less aggressive quantisation impact speed, and what would be gained in terms of performance?
 - What was making nanoGPT so slow?
 - How much work is state passing doing here?
+- Can we do better?
 
 # To Run.
 
