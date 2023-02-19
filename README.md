@@ -2,6 +2,24 @@
 
 Experimenting with fast GPT inference.
 
+# Write Up.
+
+The goal here is to create a function that runs generation on GPT2 as fast as possible.
+
+# To Run.
+
+After activating your virtual environment...
+
+```
+# Install requirements
+pip instal -r requirements.txt
+
+# Compile the base past state model.
+python -m onnxruntime.transformers.models.gpt2.convert_to_onnx -m gpt2 --output gpt2_past.onnx -p fp32
+```
+
+You should then just be able to run the notebook from the beginning.
+
 # Log.
 
     - project started
@@ -17,8 +35,6 @@ Experimenting with fast GPT inference.
             3. Both
             4. ???
             5. Profit
-    - need pytorch > 2.0 for flash attention
-        - will try first without and then see if it makes an impact
     - an initial test shows nanoGPT taking 2.5x times as long as HF?!?!
         - definitely nothing to do with the tokenizer
         - compiling doesnt seem to help
@@ -65,4 +81,5 @@ Experimenting with fast GPT inference.
                 - document and check
                 - write tests?
                 - requirements file
+                - something may be wrong with the absolute perplexity calculation, but relatively they are where i expect them to be
             - swapping in fast tokenizers?! >:)
